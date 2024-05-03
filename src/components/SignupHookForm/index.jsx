@@ -9,7 +9,6 @@ const SignupHookForm = () => {
   const handleSubmitForm = (data) => {
     console.log(data)
   }
-  //   console.log(errors)
 
   return (
     <form onSubmit={handleSubmit(handleSubmitForm)}>

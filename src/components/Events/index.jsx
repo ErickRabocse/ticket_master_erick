@@ -1,12 +1,8 @@
-import React, { useState } from 'react'
 import EventItem from './components/EventItem'
-// import data from '../../data/events.json'
-import eventsJSON from '../../data/events.json'
+import useEventsData from '../../hooks/useEventsData'
 
 const Events = ({ searchTerm }) => {
-  const [data] = useState(eventsJSON)
-  const { _embedded: { events } } = data
-  console.log(events)
+  const { events } = useEventsData()
   const handleEventClickItem = (id) => {
     console.log('event clicked', id)
   }

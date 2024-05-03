@@ -1,11 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Navbar = ({ onSearch }) => {
   const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    console.log('useEffect on NavBar, when search changes')
+  }, [search, onSearch])
+
   const handleInputSearch = (e) => {
     setSearch(e.target.value)
   }
-  console.log(search)
+  // console.log(search)
   const handleInputKeyDown = (e) => {
     if (e.key === 'Enter') {
       onSearch(search)
