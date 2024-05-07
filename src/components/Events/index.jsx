@@ -1,5 +1,6 @@
 import useEventsData from '../../hooks/useEventsData'
 import EventItem from './components/EventItem'
+import './style.css'
 
 const Events = ({ searchTerm }) => {
   const { events, isLoading, error } = useEventsData()
@@ -29,7 +30,7 @@ const Events = ({ searchTerm }) => {
   if (error) { return <div>An error has occurred</div> }
   if (isLoading) { return <h1>Loading results</h1> }
   return (
-    <div>
+    <div className='events-container'>
       Events list
       {renderedEvents()}
     </div>
