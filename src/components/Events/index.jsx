@@ -26,16 +26,11 @@ const Events = ({ searchTerm }) => {
       ))
     )
   }
-
-  if (error) {
-    return <div>An error has occurred</div>
-  }
-  if (isLoading) {
-    return <h1>Loading results</h1>
-  }
+  if (error) { return <div>An error has occurred</div> }
+  if (isLoading) { return <h1>Loading results</h1> }
   return (
     <div>
-      Events
+      Events list
       {renderedEvents()}
     </div>
   )
