@@ -19,17 +19,52 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
   const handleInputKeyDown = (e) => {
     if (e.key === 'Enter') {
       onSearch(search)
+      setSearch('')
     }
   }
   return (
-    <div ref={ref}>
-      <p>My tickets</p>
-      <input
-        placeholder='Busca tu evento favorito'
-        onChange={handleInputSearch}
-        value={search}
-        onKeyDown={handleInputKeyDown}
-      />
+    <div
+      ref={ref} style={{
+        marginBottom: 20,
+        display: 'flex'
+      }}
+    >
+      <section
+        className='brand' style={{
+          display: 'flex',
+          flex: 1,
+          alignItems: 'center'
+        }}
+      >
+        <p style={{
+          fontSize: 24,
+          fontWeight: 'bold'
+        }}
+        >My tickets
+        </p>
+      </section>
+      <section
+        className='search' style={{
+          display: 'flex',
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'flex-end'
+        }}
+      >
+        <input
+          placeholder='Busca tu evento favorito'
+          onChange={handleInputSearch}
+          value={search}
+          onKeyDown={handleInputKeyDown}
+          style={{
+            padding: '2px 6px',
+            width: '200px',
+            borderRadius: '5px',
+            border: 'none',
+            fontSize: 16
+          }}
+        />
+      </section>
     </div>
   )
 })

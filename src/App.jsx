@@ -9,7 +9,7 @@ function App () {
 
   const handleNavbarSearch = (term) => {
     setSearchTerm(term)
-    console.log(containerRef.current.setSearch(''))
+    console.log(containerRef.current)
   }
   return (
     <>
