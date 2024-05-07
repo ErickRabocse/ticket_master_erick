@@ -1,18 +1,20 @@
 import React from 'react'
-import './styles.css'
+// import './styles.css'
+import styles from './EventItem.module.css'
 
 const EventItem = ({ img, name, info, onEventClick, id }) => {
   const handleSeeMoreClick = (e) => {
     e.stopPropagation()
     onEventClick(id)
   }
+  console.log(styles)
   return (
-    <div onClick={() => console.log('parent clicked')} className='event-item-container'>
+    <div onClick={() => console.log('parent clicked')} className={styles.eventItemContainer}>
       <img src={img} alt='event image' style={{ width: '200px' }} />
-      <div className='event-info-container'>
-        <h4 className='event-name'>{name}</h4>
-        <p className='event-info'>{info}</p>
-        <button className='see-more-btn' onClick={handleSeeMoreClick}>Details</button>
+      <div className={styles.eventInfoContainer}>
+        <h4 className={styles.eventName}>{name}</h4>
+        <p className={styles.eventInfo}>{info}</p>
+        <button className={styles.seeMoreBtn} onClick={handleSeeMoreClick}>Details</button>
       </div>
     </div>
   )
