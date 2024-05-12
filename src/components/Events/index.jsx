@@ -1,11 +1,13 @@
+import { useNavigate } from 'react-router-dom'
 import useEventsData from '../../hooks/useEventsData'
 import EventItem from './components/EventItem'
 import './style.css'
 
 const Events = ({ searchTerm }) => {
+  const navigate = useNavigate()
   const { events, isLoading, error } = useEventsData()
-  const handleEventClickItem = (id) => {
-    console.log('event clicked', id)
+  const handleEventItemClick = (id) => {
+    navigate(`/details/ ${id}`)
   }
   const renderedEvents = () => {
     let eventsFiltered = events
@@ -21,7 +23,7 @@ const Events = ({ searchTerm }) => {
           img={eventItem.images[1].url}
           name={eventItem.name}
           info={eventItem.promoter?.description}
-          onEventClick={handleEventClickItem}
+          onEventClick={handleEventItemClick}
           id={eventItem.id}
         />
       ))
