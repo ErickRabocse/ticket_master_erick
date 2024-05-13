@@ -3,6 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from '../views/Home'
 import Details from '../views/Details'
 import Error404 from '../views/Error404'
+import Profile from '../views/Profile'
 
 const router = createBrowserRouter([
   {
@@ -13,6 +14,20 @@ const router = createBrowserRouter([
   {
     path: '/details/:eventId',
     element: <Details />
+  },
+  {
+    path: '/profile',
+    element: <Profile />,
+    children: [
+      {
+        path: 'my-info',
+        element: <div>My info</div>
+      },
+      {
+        path: 'liked-events',
+        element: <div>Liked events</div>
+      }
+    ]
   }
 ])
 const MyRoutes = () => <RouterProvider router={router} />
