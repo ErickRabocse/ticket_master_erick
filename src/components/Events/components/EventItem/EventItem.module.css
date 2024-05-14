@@ -11,7 +11,7 @@
     margin-left: 20px;
 }
 .eventName{
-    margin: 0;
+    margin: 0 0 10px;
 }
 .eventInfo{
     text-align: left;
@@ -19,7 +19,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
 }
 .seeMoreBtn{

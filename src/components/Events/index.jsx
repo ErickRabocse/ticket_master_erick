@@ -22,7 +22,7 @@ const Events = ({ searchTerm }) => {
           key={eventItem.id}
           img={eventItem.images[1].url}
           name={eventItem.name}
-          info={eventItem.promoter?.description}
+          info={eventItem.info}
           onEventClick={handleEventItemClick}
           id={eventItem.id}
         />
@@ -38,5 +38,4 @@ const Events = ({ searchTerm }) => {
     </div>
   )
 }
-
 export default Events
