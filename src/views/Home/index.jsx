@@ -1,10 +1,11 @@
-import React, { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import Navbar from '../../components/Navbar'
 import Events from '../../components/Events'
 import useEventsData from '../../hooks/useEventsData'
+import ReactPaginate from 'react-paginate'
 
 const Home = () => {
-  const { events, isLoading, error, fetchEvents } = useEventsData()
+  const { events, isLoading, error, fetchEvents, page } = useEventsData()
   const [searchTerm, setSearchTerm] = useState('')
   const containerRef = useRef()
 
@@ -17,12 +18,37 @@ const Home = () => {
     fetchEvents(`&keyword=${term}`)
   }
 
+  const handlePageClick = ({ selected }) => {
+
+  }
+
+  const renderEvents = () => {
+    if (isLoading) {
+      return <h1>Loading results</h1>
+    }
+    if (error) {
+      return <div>An error has occurred</div>
+    }
+    return (
+      <div>
+        <Events searchTerm={searchTerm} events={events} />
+        <ReactPaginate
+          breakLabel='...'
+          nextLabel='>'
+          onPageChange={handlePageClick}
+          pageRangeDisplayed={5}
+          pageCount={page?.totalPages}
+          previousLabel='<'
+          renderOnZeroPageCount={null}
+        />
+      </div>
+    )
+  }
+
   return (
     <>
       <Navbar onSearch={handleNavbarSearch} ref={containerRef} />
-      {!!error && <div>An error has occurred</div>}
-      {isLoading ? <h1>Loading results</h1> : <Events searchTerm={searchTerm} events={events} />}
-
+      {renderEvents()}
     </>
   )
 }

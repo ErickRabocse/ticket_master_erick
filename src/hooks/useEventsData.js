@@ -14,8 +14,10 @@ const useEventsData = () => {
       setError(error)
     }
   }
+
   return {
     events: data?._embedded?.events || [], // events: data.current?._embedded?.events || []
+    page: data?.page || {},
     isLoading,
     error,
     fetchEvents
