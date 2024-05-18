@@ -3,6 +3,7 @@ import Navbar from '../../components/Navbar'
 import Events from '../../components/Events'
 import useEventsData from '../../hooks/useEventsData'
 import ReactPaginate from 'react-paginate'
+import styles from './Home.module.css'
 
 const Home = () => {
   const { events, isLoading, error, fetchEvents, page } = useEventsData()
@@ -19,7 +20,7 @@ const Home = () => {
   }
 
   const handlePageClick = ({ selected }) => {
-
+    fetchEvents(`&keyword=${searchTerm}&page=${selected}`)
   }
 
   const renderEvents = () => {
@@ -33,6 +34,12 @@ const Home = () => {
       <div>
         <Events searchTerm={searchTerm} events={events} />
         <ReactPaginate
+          className={styles.pagination}
+          nextClassName={styles.next}
+          previousClassName={styles.previous}
+          pageClassName={styles.page}
+          activeClassName={styles.activePage}
+          disabledClassName={styles.disabledPage}
           breakLabel='...'
           nextLabel='>'
           onPageChange={handlePageClick}
