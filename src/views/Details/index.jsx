@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
+import styles from './Details.module.css'
+import { format } from 'date-fns'
+import { es } from 'date-fns/locale'
 
 const Details = () => {
   const { eventId } = useParams() //  console.log(eventId)
@@ -22,9 +25,27 @@ const Details = () => {
     fetchEventsData()
   }, [])
   console.log(eventData)
+
+  if (isLoading && Object.keys(eventData === 0)) {
+    <h1>The page is loading ...</h1>
+  }
+  if (Object.keys(error) > 0) {
+    <h1>An error has occurred</h1>
+  }
   return (
-    <div>
-      Details view component
+    <div className={styles.parentContainer}>
+      <div className={styles.mainInfoContainer}>
+        <img src={eventData?.images?.[0]?.url} alt={eventData?.name} className={styles.eventImage} />
+        <h4 className={styles.eventName}>{eventData.name}</h4>
+        <p className={styles.infoParagraph}>{eventData.info}</p>
+        {eventData?.dates?.start?.dateTime ? <p className={styles.dateParagraph}> {format(new Date(eventData?.dates?.start?.dateTime), 'd LLLL yyyy H:mm', { locale: es })} hrs.</p> : null}
+      </div>
+      <div className={styles.seatInfoContainer}>
+        {eventData?.seatmap?.staticUrl ? <><h6>Event map</h6> <img className={styles.seatMapContainer} src={eventData?.seatmap?.staticUrl} alt='Event map' /></> : null}
+        <p className={styles.pleaseNoteLegend}>{eventData.pleaseNote}</p>
+        <p className={styles.priceRangeLegend}>Price range: {eventData?.priceRanges?.[0]?.min} - {eventData?.priceRanges?.[0]?.max} {eventData?.priceRanges?.[0]?.currency}</p>
+      </div>
+      <a href={eventData?.url}>Get your tickets</a>
     </div>
   )
 }
