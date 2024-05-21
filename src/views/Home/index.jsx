@@ -9,20 +9,16 @@ const Home = () => {
   const { events, isLoading, error, fetchEvents, page } = useEventsData()
   const [searchTerm, setSearchTerm] = useState('')
   const containerRef = useRef()
-
   useEffect(() => {
     fetchEvents()
   }, [])
-
   const handleNavbarSearch = (term) => {
     setSearchTerm(term)
     fetchEvents(`&keyword=${term}`)
   }
-
   const handlePageClick = ({ selected }) => {
     fetchEvents(`&keyword=${searchTerm}&page=${selected}`)
   }
-
   const renderEvents = () => {
     if (isLoading) {
       return <h1>Loading results</h1>
@@ -51,7 +47,6 @@ const Home = () => {
       </div>
     )
   }
-
   return (
     <>
       <Navbar onSearch={handleNavbarSearch} ref={containerRef} />
@@ -59,5 +54,4 @@ const Home = () => {
     </>
   )
 }
-
 export default Home
