@@ -41,11 +41,13 @@ const Details = () => {
         {eventData?.dates?.start?.dateTime ? <p className={styles.dateParagraph}> {format(new Date(eventData?.dates?.start?.dateTime), 'd LLLL yyyy H:mm', { locale: es })} hrs.</p> : null}
       </div>
       <div className={styles.seatInfoContainer}>
-        {eventData?.seatmap?.staticUrl ? <><h6>Event map</h6> <img className={styles.seatMapContainer} src={eventData?.seatmap?.staticUrl} alt='Event map' /></> : null}
+        {eventData?.seatmap?.staticUrl ? <><h6 className={styles.eventMapTitle}>Event map</h6> <img className={styles.seatMapImage} src={eventData?.seatmap?.staticUrl} alt='Event map' /></> : null}
         <p className={styles.pleaseNoteLegend}>{eventData.pleaseNote}</p>
         <p className={styles.priceRangeLegend}>Price range: {eventData?.priceRanges?.[0]?.min} - {eventData?.priceRanges?.[0]?.max} {eventData?.priceRanges?.[0]?.currency}</p>
       </div>
-      <a href={eventData?.url}>Get your tickets</a>
+      <div className={styles.buyTicketsContainer}>
+        <a href={eventData?.url} className={styles.buyTicketsLink}>Get your tickets</a>
+      </div>
     </div>
   )
 }
