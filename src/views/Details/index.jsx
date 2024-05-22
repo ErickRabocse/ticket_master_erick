@@ -12,7 +12,7 @@ const Details = () => {
   useEffect(() => {
     const fetchEventsData = async () => {
       try {
-        const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=Fse8v45WAfjmtQqEuII6loIEe2GJdeRb`)
+        const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${import.meta.env.VITE_TICKETMASTER_API_KEY}`)
         const data = await response.json()
         setEventData(data)
         setIsLoading(false)
