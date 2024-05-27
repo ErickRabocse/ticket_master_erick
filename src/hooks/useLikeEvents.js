@@ -21,11 +21,9 @@ const useLikeEvents = (eventId) => {
     localStorage.setItem(LIKED_EVENTS_STORAGE_KEY, JSON.stringify(likedEvents))
     console.log('These is the array of all liked events ids', likedEvents)
   }
-
   return {
     isEventLiked,
     toggleEventLike
   }
 }
-
 export default useLikeEvents
