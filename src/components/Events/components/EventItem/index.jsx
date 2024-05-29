@@ -4,7 +4,7 @@ import filledHeart from '../../../../assets/filled-heart.png'
 import emptyHeart from '../../../../assets/empty-heart.png'
 import useLikeEvents from '../../../../hooks/useLikeEvents'
 
-const EventItem = ({ img, name, info, onEventClick, id }) => {
+const EventItem = ({ img, name, info, onEventClick, id, state }) => {
   const { isEventLiked, toggleEventLike } = useLikeEvents(id)
   const handleSeeMoreClick = (e) => {
     e.stopPropagation()
@@ -18,11 +18,11 @@ const EventItem = ({ img, name, info, onEventClick, id }) => {
         <img src={img} alt='event image' style={{ width: '200px' }} />
       </div>
       <div className={styles.eventInfoContainer}>
-        <h4 className={styles.eventName}>{name}</h4>
+        <h4 className={styles.eventName}>{name} ({state})</h4>
         <p className={styles.eventInfo}>{info}</p>
         <button className={styles.seeMoreBtn} onClick={handleSeeMoreClick}>
           {/* <Link to={`details/123 ${id}`}> Details </Link> */}
-          Details
+          Detalles
         </button>
       </div>
     </div>

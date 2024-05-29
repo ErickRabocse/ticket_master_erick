@@ -35,18 +35,28 @@ const Details = () => {
   return (
     <div className={styles.parentContainer}>
       <div className={styles.mainInfoContainer}>
-        <img src={eventData?.images?.[0]?.url} alt={eventData?.name} className={styles.eventImage} />
-        <h4 className={styles.eventName}>{eventData.name}</h4>
-        <p className={styles.infoParagraph}>{eventData.info}</p>
-        {eventData?.dates?.start?.dateTime ? <p className={styles.dateParagraph}> {format(new Date(eventData?.dates?.start?.dateTime), 'd LLLL yyyy H:mm', { locale: es })} hrs.</p> : null}
+        <section className={styles.heroContainer}>
+          <img src={eventData?.images?.[0]?.url} alt={eventData?.name} className={styles.eventImage} />
+          <div className={styles.heroInfoSection}>
+            <div>
+              <img src={eventData?.images?.[0]?.url} alt={eventData?.name} className={styles.heroImageSmall} />
+            </div>
+            <div className={styles.heroInfoDetails}>
+              <h4 className={styles.eventName}>{eventData.name}</h4>
+              <p className={styles.place}>{eventData._embedded?.venues[0].state.name} - {eventData._embedded?.venues[0].name}</p>
+              {eventData?.dates?.start?.dateTime ? <p className={styles.dateParagraph}> {format(new Date(eventData?.dates?.start?.dateTime), 'd LLLL yyyy H:mm', { locale: es })} hrs.</p> : null}
+              <p className={styles.infoParagraph}>{eventData.info}</p>
+            </div>
+          </div>
+        </section>
       </div>
       <div className={styles.seatInfoContainer}>
         {eventData?.seatmap?.staticUrl ? <><h6 className={styles.eventMapTitle}>Event map</h6> <img className={styles.seatMapImage} src={eventData?.seatmap?.staticUrl} alt='Event map' /></> : null}
         <p className={styles.pleaseNoteLegend}>{eventData.pleaseNote}</p>
-        <p className={styles.priceRangeLegend}>Price range: {eventData?.priceRanges?.[0]?.min} - {eventData?.priceRanges?.[0]?.max} {eventData?.priceRanges?.[0]?.currency}</p>
+        <p className={styles.priceRangeLegend}>Rango de precios: {eventData?.priceRanges?.[0]?.min} - {eventData?.priceRanges?.[0]?.max} {eventData?.priceRanges?.[0]?.currency}</p>
       </div>
       <div className={styles.buyTicketsContainer}>
-        <a href={eventData?.url} className={styles.buyTicketsLink}>Get your tickets</a>
+        <a href={eventData?.url} className={styles.buyTicketsLink}>Obtén tus boletos</a>
       </div>
     </div>
   )

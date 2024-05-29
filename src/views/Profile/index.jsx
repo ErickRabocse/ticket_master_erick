@@ -1,5 +1,5 @@
 import React from 'react'
-import { Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import styles from './Profile.module.css'
 
 const Profile = () => {
@@ -11,15 +11,16 @@ const Profile = () => {
 
   return (
     <div>
-      <div>
+      <Link to='/' className={styles.homeLink}>Inicio</Link>
+      <div style={{ marginBottom: '12px' }}>
         <span
-          className={`${pathname.includes('my-info') ? styles.active : ''}`}
+          className={`${pathname.includes('my-info') ? styles.active : ''} ${styles.tab}`}
           onClick={() => { handleTabClick('my-info') }}
         >
           Mi información
         </span>
         <span
-          className={`${pathname.includes('liked-events') ? styles.active : ''}`}
+          className={`${pathname.includes('liked-events') ? styles.active : ''} ${styles.tab}`}
           onClick={() => { handleTabClick('liked-events') }}
         >
           Eventos favoritos

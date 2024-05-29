@@ -3,6 +3,7 @@ import EventItem from './components/EventItem'
 import './style.css'
 
 const Events = ({ searchTerm, events }) => {
+  console.log('here are the events', events)
   const navigate = useNavigate()
   const handleEventItemClick = (id) => {
     navigate(`/details/ ${id}`)
@@ -23,6 +24,7 @@ const Events = ({ searchTerm, events }) => {
           info={eventItem.info}
           onEventClick={handleEventItemClick}
           id={eventItem.id}
+          state={eventItem._embedded.venues[0].state.name}
         />
       ))
     )
