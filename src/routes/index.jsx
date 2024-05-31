@@ -3,7 +3,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Home from '../views/Home'
 import Details from '../views/Details'
 import Error404 from '../views/Error404'
-
 import Profile from '../views/Profile'
 import MyInfo from '../views/Profile/components/MyInfo'
 import LikedEvents from '../views/Profile/components/LikedEvents'

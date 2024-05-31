@@ -65,7 +65,9 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
             fontSize: 16
           }}
         />
-        <Link to='/profile/my-info' style={{ marginLeft: 24, color: 'white', textDecoration: 'none' }}>My profile</Link>
+        <Link to='/profile/my-info' style={{ marginLeft: 24, color: 'white', textDecoration: 'none' }}>
+          My profile
+        </Link>
       </section>
     </div>
   )
