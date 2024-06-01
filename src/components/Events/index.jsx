@@ -6,7 +6,7 @@ const Events = ({ searchTerm, events }) => {
   console.log('here are the events', events)
   const navigate = useNavigate()
   const handleEventItemClick = (id) => {
-    navigate(`/details/ ${id}`)
+    navigate(`/details/${id}`)
   }
   const renderedEvents = () => {
     let eventsFiltered = events

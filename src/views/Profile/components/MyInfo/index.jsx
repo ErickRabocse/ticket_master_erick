@@ -26,15 +26,17 @@ const MyInfo = () => {
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className={styles.form}>
       <label className={styles.label}>
-        Name
-        <input className={styles.input} {...register('name', { required: true, minLength: 1, maxLength: 120 })} />
+        Nombre
+        <input
+          className={styles.input} {...register('name', { required: true, minLength: 1, maxLength: 120 })}
+        />
       </label>
       <label className={styles.label}>
-        Email
+        Correo electrónico (email)
         <input className={styles.input} {...register('email', { required: true })} />
       </label>
       <label className={styles.label}>
-        Age
+        Edad
         <input
           className={styles.input}
           {...register('age', { required: true, min: 1, max: 120, valueAsNumber: true })}
