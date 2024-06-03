@@ -2,14 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { LIKED_EVENTS_STORAGE_KEY } from '../../../../utils/constants'
 import EventItem from '../../../../components/Events/components/EventItem'
 import { useNavigate } from 'react-router-dom'
-
 const LikedEvents = () => {
   const [events, setEvents] = useState([])
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState({})
-
   const navigate = useNavigate()
-
   useEffect(() => {
     const fetchEventsDetails = async () => {
       try {
@@ -30,18 +27,15 @@ const LikedEvents = () => {
     }
     fetchEventsDetails()
   }, [])
-
   const handleEventItemClick = (id) => {
     navigate(`/details/${id}`)
   }
-
   if (Object.keys(error).length > 0) {
     return <div>Ha ocurrido un error</div>
   }
   if (isLoading) {
     return <div>Cargando los eventos ...</div>
   }
-
   return (
     events.map(event => (
       <EventItem
@@ -56,5 +50,4 @@ const LikedEvents = () => {
     ))
   )
 }
-
 export default LikedEvents
