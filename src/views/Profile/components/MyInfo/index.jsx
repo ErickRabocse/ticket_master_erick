@@ -22,7 +22,7 @@ const MyInfo = () => {
     } catch (error) {
       console.log(error)
     }
-  }, [])
+  }, [setValue])
   return (
     <form onSubmit={handleSubmit(handleFormSubmit)} className={styles.form}>
       <label className={styles.label}>

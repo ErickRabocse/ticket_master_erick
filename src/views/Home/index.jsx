@@ -14,8 +14,10 @@ const Home = () => {
   const [searchTerm, setSearchTerm] = useState('')
   const containerRef = useRef()
   const [isToggle, setIsToggle] = useState(false)
+  const fetchEventsRef = useRef()
+  fetchEventsRef.current = fetchEvents
   useEffect(() => {
-    fetchEvents()
+    fetchEventsRef.current()
   }, [])
   const handleNavbarSearch = (term) => {
     setSearchTerm(term)
