@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
 import Navbar from '../../components/Navbar'
 import Events from '../../components/Events'
 // import useEventsData from '../../hooks/useEventsData'
@@ -9,8 +9,8 @@ import styles from './Home.module.css'
 const Home = () => {
   // const { events, isLoading, error, fetchEvents, page } = useEventsData()
   const { data, isLoading, error, fetchEvents } = useEventsResults()
-  const events = data?._embedded?.events || []
-  const page = data?.page || {}
+  const events = useMemo(() => data?._embedded?.events || [], [data?._embedded?.events])
+  const page = useMemo(() => data?.page || {}, [data?.page])
   const [searchTerm, setSearchTerm] = useState('')
   const containerRef = useRef()
   const [isToggle, setIsToggle] = useState(false)
