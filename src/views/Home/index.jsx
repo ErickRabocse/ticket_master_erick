@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useCallback } from 'react'
 import Navbar from '../../components/Navbar'
 import Events from '../../components/Events'
 // import useEventsData from '../../hooks/useEventsData'
@@ -21,9 +21,9 @@ const Home = () => {
     setSearchTerm(term)
     fetchEvents(`&keyword=${term}`)
   }
-  const handlePageClick = ({ selected }) => {
+  const handlePageClick = useCallback(({ selected }) => {
     fetchEvents(`&keyword=${searchTerm}&page=${selected}`)
-  }
+  }, [searchTerm, fetchEvents])
   const renderEvents = () => {
     if (isLoading) {
       return <h1>Loading results</h1>
