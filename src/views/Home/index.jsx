@@ -7,6 +7,7 @@ import ReactPaginate from 'react-paginate'
 import styles from './Home.module.css'
 
 const Home = () => {
+  // throw new Error('2309487219034')
   // const { events, isLoading, error, fetchEvents, page } = useEventsData()
   const { data, isLoading, error, fetchEvents } = useEventsResults()
   const events = useMemo(() => data?._embedded?.events || [], [data?._embedded?.events])
