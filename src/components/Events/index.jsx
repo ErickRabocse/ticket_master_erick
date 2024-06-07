@@ -1,15 +1,15 @@
-import { useNavigate } from 'react-router-dom'
-import EventItem from './components/EventItem'
 import './style.css'
+import { useNavigate } from 'react-router-dom'
 import { memo } from 'react'
 
+import EventItem from './components/EventItem'
+
 const Events = ({ searchTerm, events }) => {
-  console.log('here are the events', events)
   const navigate = useNavigate()
   const handleEventItemClick = (id) => {
     navigate(`/details/${id}`)
   }
-  const renderedEvents = () => {
+  const renderEvents = () => {
     let eventsFiltered = events
     if (searchTerm.length > 0) {
       eventsFiltered = eventsFiltered.filter(item => (
@@ -33,8 +33,9 @@ const Events = ({ searchTerm, events }) => {
   return (
     <div className='events-container'>
       Events list
-      {renderedEvents()}
+      {renderEvents()}
     </div>
   )
 }
+
 export default memo(Events)

@@ -1,39 +1,53 @@
-import { useState, useRef, useEffect, useCallback, useMemo } from 'react'
+// import { useEffect, useRef, useState, useCallback, useMemo } from 'react'
+import { useEffect, useRef, useState, useCallback } from 'react'
+
+import ReactPaginate from 'react-paginate'
+
 import Navbar from '../../components/Navbar'
 import Events from '../../components/Events'
-// import useEventsData from '../../hooks/useEventsData'
-import useEventsResults from '../../state/events-results'
-import ReactPaginate from 'react-paginate'
 import styles from './Home.module.css'
+import useEventsData from '../../hooks/useEventsData'
+// import useEventsResults from '../../state/events-results'
 
 const Home = () => {
-  // throw new Error('2309487219034')
-  // const { events, isLoading, error, fetchEvents, page } = useEventsData()
-  const { data, isLoading, error, fetchEvents } = useEventsResults()
-  const events = useMemo(() => data?._embedded?.events || [], [data?._embedded?.events])
-  const page = useMemo(() => data?.page || {}, [data?.page])
+  const { events, isLoading, error, fetchEvents, page } = useEventsData()
+
+  // USING useEventsResults() is an option to use "zustand" however, it affects pagination SO I'M RETURNING TO the hook useEventsData, which works just fine
+  // const { data, isLoading, error, fetchEvents, page } = useEventsResults()
+  // const events = useMemo(() => data?._embedded?.events || [], [data?._embedded?.events])
+  // const page = useMemo(() => data?.page || {}, [data?.page])
+
+  const [isToggle, setIsToggle] = useState(false)
+
   const [searchTerm, setSearchTerm] = useState('')
   const containerRef = useRef()
-  const [isToggle, setIsToggle] = useState(false)
-  const fetchEventsRef = useRef()
-  fetchEventsRef.current = fetchEvents
+  const fetchMyEventsRef = useRef()
+
+  fetchMyEventsRef.current = fetchEvents
+
   useEffect(() => {
-    fetchEventsRef.current()
+    console.log('useEffect')
+    fetchMyEventsRef.current()
   }, [])
+
   const handleNavbarSearch = (term) => {
     setSearchTerm(term)
     fetchEvents(`&keyword=${term}`)
   }
+
   const handlePageClick = useCallback(({ selected }) => {
     fetchEvents(`&keyword=${searchTerm}&page=${selected}`)
   }, [searchTerm, fetchEvents])
+
   const renderEvents = () => {
     if (isLoading) {
-      return <h1>Loading results</h1>
+      return <div>Cargando resultados...</div>
     }
+
     if (error) {
-      return <div>An error has occurred</div>
+      return <div>Ha ocurrido un error</div>
     }
+
     return (
       <div>
         <button onClick={() => setIsToggle(!isToggle)}>{isToggle ? 'ON' : 'OFF'}</button>
@@ -48,7 +62,7 @@ const Home = () => {
           breakLabel='...'
           nextLabel='>'
           onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
+          pageRangeDisplayed={3}
           pageCount={page?.totalPages}
           previousLabel='<'
           renderOnZeroPageCount={null}
@@ -56,6 +70,7 @@ const Home = () => {
       </div>
     )
   }
+
   return (
     <>
       <Navbar onSearch={handleNavbarSearch} ref={containerRef} />
@@ -63,4 +78,5 @@ const Home = () => {
     </>
   )
 }
+
 export default Home
