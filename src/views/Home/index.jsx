@@ -18,6 +18,7 @@ const Home = () => {
   // const page = useMemo(() => data?.page || {}, [data?.page])
 
   const [isToggle, setIsToggle] = useState(false)
+  const [bgColor, setBgColor] = useState(false)
 
   const [searchTerm, setSearchTerm] = useState('')
   const containerRef = useRef()
@@ -39,6 +40,11 @@ const Home = () => {
     fetchEvents(`&keyword=${searchTerm}&page=${selected}`)
   }, [searchTerm, fetchEvents])
 
+  const toggleBgMode = () => {
+    setIsToggle(!isToggle)
+    setBgColor(!bgColor)
+  }
+
   const renderEvents = () => {
     if (isLoading) {
       return <div>Cargando resultados...</div>
@@ -50,8 +56,8 @@ const Home = () => {
 
     return (
       <div>
-        <button onClick={() => setIsToggle(!isToggle)}>{isToggle ? 'ON' : 'OFF'}</button>
-        <Events searchTerm={searchTerm} events={events} />
+        <button onClick={toggleBgMode} className={`${styles.userModeButton}`}>{isToggle ? 'DARK MODE' : 'LIGHT MODE'}</button>
+        <Events searchTerm={searchTerm} events={events} bgColor={bgColor} />
         <ReactPaginate
           className={styles.pagination}
           nextClassName={styles.next}

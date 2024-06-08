@@ -41,7 +41,7 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
           fontSize: 24,
           fontWeight: 'bold'
         }}
-        >My tickets
+        >Ticket Master Events
         </p>
       </section>
       <section

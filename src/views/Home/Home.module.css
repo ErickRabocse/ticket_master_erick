@@ -7,6 +7,18 @@
     align-items: center;
 }
 
+/* USER MODE: DARK & LIGHT */
+.userModeButton{
+    display: flex;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: 700;
+    background-color: green;
+    color: white;
+    letter-spacing: 2px;
+}
+
+
 /* AFFECTS THE CONTENT OF PAGINATION */
 .page{
     font-size: 20px;
@@ -34,3 +46,4 @@
 .disabledPage{
     cursor: not-allowed;
 }
+

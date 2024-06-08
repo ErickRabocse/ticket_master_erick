@@ -1,3 +1,15 @@
-.events-container{
-    /* background-color: grey; */
+.events-container-light{
+    background-color: lightgray;
+    color: black;
+}
+
+.events-container-dark{
+    background-color: black;
+    color: white;
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
