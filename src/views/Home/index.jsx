@@ -55,9 +55,9 @@ const Home = () => {
     }
 
     return (
-      <div>
-        <button onClick={toggleBgMode} className={`${styles.userModeButton}`}>{isToggle ? 'DARK MODE' : 'LIGHT MODE'}</button>
-        <Events searchTerm={searchTerm} events={events} bgColor={bgColor} />
+      <div className={`${bgColor ? 'events-container-light' : 'events-container-dark'} ${styles.mainContainer}`}>
+        <button onClick={toggleBgMode} className={styles.userModeButton}>{isToggle ? 'DARK MODE' : 'LIGHT MODE'}</button>
+        <Events searchTerm={searchTerm} events={events} />
         <ReactPaginate
           className={styles.pagination}
           nextClassName={styles.next}

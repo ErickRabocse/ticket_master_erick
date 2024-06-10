@@ -12,8 +12,26 @@
 .tab:hover{
     opacity: .8;
 }
-.homeLink{
+/* .homeLink{
     color: white;
     text-decoration: none;
     margin: 12px 0;
+} */
+.homeBtnContainer{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background-color: aliceblue;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+.homeBtn{
+    height: 30px;
+    margin: 25px;
+    cursor: pointer;
 }

@@ -4,7 +4,7 @@ import { memo } from 'react'
 
 import EventItem from './components/EventItem'
 
-const Events = ({ searchTerm, events, bgColor }) => {
+const Events = ({ searchTerm, events }) => {
   const navigate = useNavigate()
   const handleEventItemClick = (id) => {
     navigate(`/details/${id}`)
@@ -31,8 +31,7 @@ const Events = ({ searchTerm, events, bgColor }) => {
     )
   }
   return (
-    <div className={`${bgColor ? 'events-container-light' : 'events-container-dark'} mainContainer`}>
-      Events list
+    <div className='mainContainer'>
       {renderEvents()}
     </div>
   )

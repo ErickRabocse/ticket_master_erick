@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import styles from './Details.module.css'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
+import home from '../../assets/home.png'
 
 const Details = () => {
   const { eventId } = useParams() //  console.log(eventId)
@@ -36,6 +37,12 @@ const Details = () => {
     <div className={styles.parentContainer}>
       <div className={styles.mainInfoContainer}>
         <section className={styles.heroContainer}>
+          <div className={styles.homeBtnContainer}>
+            <Link to='/'>
+              <img src={home} className={styles.homeBtn} />
+            </Link>
+          </div>
+
           <img src={eventData?.images?.[0]?.url} alt={eventData?.name} className={styles.eventImage} />
           <div className={styles.heroInfoSection}>
             <div>

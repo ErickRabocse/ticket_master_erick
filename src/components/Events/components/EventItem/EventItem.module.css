@@ -2,7 +2,6 @@
     display: flex;
     margin: 24px 0;
     width: 90%;
-    padding: 10px;
     /* background-color: pink; */
 }
 .eventInfoContainer{
@@ -11,15 +10,12 @@
     width: 90%;
     align-items: start;
     margin-left: 20px;
-    margin-right: 20px;
-    padding-right: 20px;
-
 }
 .eventName{
     margin: 0 0 10px;
 }
 .eventInfo{
-    text-align: left;
+    text-align: justify;
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
