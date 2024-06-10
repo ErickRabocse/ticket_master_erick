@@ -1,71 +1,43 @@
 import React, { useEffect, useState, forwardRef, useImperativeHandle } from 'react'
 import { Link } from 'react-router-dom'
+import home from '../../assets/home.png'
+import styles from './Navbar.module.css'
 
 const Navbar = forwardRef(({ onSearch }, ref) => {
   const [search, setSearch] = useState('')
-
   useEffect(() => {
     console.log('useEffect when search changes')
   }, [search, onSearch])
-
   useImperativeHandle(ref, () => ({
     search,
     setSearch
   }))
-
-  const handleInputSearch = (e) => {
-    setSearch(e.target.value)
-  }
-  // console.log(search)
+  const handleInputSearch = (e) => setSearch(e.target.value)
+  const refresh = () => onSearch(search)
   const handleInputKeyDown = (e) => {
     if (e.key === 'Enter') {
       onSearch(search)
       setSearch('')
     }
   }
+
   return (
-    <div
-      ref={ref} style={{
-        marginBottom: 20,
-        display: 'flex'
-      }}
-    >
-      <section
-        className='brand' style={{
-          display: 'flex',
-          flex: 1,
-          alignItems: 'center'
-        }}
-      >
-        <p style={{
-          fontSize: 24,
-          fontWeight: 'bold'
-        }}
-        >Ticket Master Events
-        </p>
+    <div ref={ref} className={styles.mainContainer}>
+      <section className={styles.brandSection}>
+        <p className={styles.brandName}>Ticket Master Events</p>
       </section>
-      <section
-        className='search' style={{
-          display: 'flex',
-          flex: 1,
-          alignItems: 'center',
-          justifyContent: 'flex-end'
-        }}
-      >
+      <section className={styles.inputContainer}>
+        <div onClick={refresh}>
+          <img src={home} className={styles.homeBtn} />
+        </div>
         <input
           placeholder='Busca tu evento favorito'
           onChange={handleInputSearch}
           value={search}
           onKeyDown={handleInputKeyDown}
-          style={{
-            padding: '2px 6px',
-            width: '200px',
-            borderRadius: '5px',
-            border: 'none',
-            fontSize: 16
-          }}
+          className={styles.input}
         />
-        <Link to='/profile/my-info' style={{ marginLeft: 24, color: 'white', textDecoration: 'none' }}>
+        <Link to='/profile/my-info' className={styles.myProfile}>
           My profile
         </Link>
       </section>

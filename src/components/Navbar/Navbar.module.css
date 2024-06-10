@@ -1,0 +1,40 @@
+
+.mainContainer{
+    margin: 0 30px;
+    display: flex
+}
+.inputContainer{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end
+}
+
+.homeBtn{
+    height: 25px;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+.myProfile{
+    margin-left: 24px;
+    color: white;
+    text-decoration: none;
+}
+
+.brandSection{
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+.brandName{
+    font-size: 24px;
+    font-weight: bold
+}
+.input{
+    padding: 2px 6px;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px
+}
