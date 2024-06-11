@@ -1,7 +1,6 @@
 import './style.css'
 import { useNavigate } from 'react-router-dom'
 import { memo } from 'react'
-
 import EventItem from './components/EventItem'
 
 const Events = ({ searchTerm, events }) => {

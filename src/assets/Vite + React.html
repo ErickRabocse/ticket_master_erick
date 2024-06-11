@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://localhost:5173/profile/liked-events -->
+<html lang="en"><link type="text/css" rel="stylesheet" id="dark-mode-custom-link"><link type="text/css" rel="stylesheet" id="dark-mode-general-link"><style lang="en" type="text/css" id="dark-mode-custom-style"></style><style lang="en" type="text/css" id="dark-mode-native-style"></style><style lang="en" type="text/css" id="dark-mode-native-sheet"></style><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module">
+import RefreshRuntime from "/@react-refresh"
+RefreshRuntime.injectIntoGlobalHook(window)
+window.$RefreshReg$ = () => {}
+window.$RefreshSig$ = () => (type) => type
+window.__vite_plugin_react_preamble_installed__ = true
+</script>
+
+    <script type="module" src="./Vite + React_files/client"></script>
+
+    
+    <link rel="icon" type="image/svg+xml" href="http://localhost:5173/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vite + React</title>
+  <style type="text/css" data-vite-dev-id="C:/Users/erick/OneDrive/PROGRA/cod-facilito-react-ticketmaster/erick-ticktmaster/src/App.css">body {
+  /* max-width: 1280px; */
+  margin: 0 auto;
+  /* padding: 2rem; */
+  text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: black;
+  color: white;
+}
+
+
+</style><style type="text/css" data-vite-dev-id="C:/Users/erick/OneDrive/PROGRA/cod-facilito-react-ticketmaster/erick-ticktmaster/src/components/Navbar/Navbar.module.css">
+._mainContainer_hvnhj_3{
+    margin: 0 30px;
+    display: flex
+}
+._inputContainer_hvnhj_11{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-end
+}
+
+._homeBtn_hvnhj_25{
+    height: 25px;
+    margin: 0 20px;
+    cursor: pointer;
+}
+
+._myProfile_hvnhj_37{
+    margin: 0 20px;
+    color: white;
+    text-decoration: none;
+}
+
+._brandSection_hvnhj_49{
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+._brandName_hvnhj_59{
+    font-size: 24px;
+    font-weight: bold
+}
+._input_hvnhj_11{
+    padding: 2px 6px;
+    width: 200px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px
+}</style><style type="text/css" data-vite-dev-id="C:/Users/erick/OneDrive/PROGRA/cod-facilito-react-ticketmaster/erick-ticktmaster/src/components/Events/style.css">.events-container-light{
+    background-color: lightgray;
+    color: black;
+}
+
+.events-container-dark{
+    background-color: black;
+    color: white;
+}
+
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}</style><style type="text/css" data-vite-dev-id="C:/Users/erick/OneDrive/PROGRA/cod-facilito-react-ticketmaster/erick-ticktmaster/src/components/Events/components/EventItem/EventItem.module.css">._eventItemContainer_6ljwq_1{
+    display: flex;
+    margin: 24px 0;
+    width: 90%;
+    /* background-color: pink; */
+}
+._eventInfoContainer_6ljwq_13{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-items: start;
+    margin-left: 20px;
+}
+._eventName_6ljwq_27{
+    margin: 0 0 10px;
+}
+._eventInfo_6ljwq_13{
+    text-align: justify;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+._seeMoreBtn_6ljwq_51{
+    margin-top: 8px;
+}
+
+/* IMAGE SECTION */
+._imageContainer_6ljwq_61{
+    position: relative;
+}
+._filledHeart_6ljwq_67{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 22px;
+    z-index: 1;
+    cursor: pointer;
+}</style><style type="text/css" data-vite-dev-id="C:/Users/erick/OneDrive/PROGRA/cod-facilito-react-ticketmaster/erick-ticktmaster/src/views/Home/Home.module.css">
+/* PAGINATION CONTAINER: AFFECTS THE LIST*/
+._pagination_1bvn1_5{
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* USER MODE: DARK & LIGHT */
+
+._userModeButton_1bvn1_23{
+    /* display: flex; */
+    margin: 20px;  
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: 700;
+    background-color: green;
+    color: white;
+    letter-spacing: 2px;
+}
+
+
+/* AFFECTS THE CONTENT OF PAGINATION */
+._page_1bvn1_49{
+    font-size: 20px;
+    padding: 0 12px;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+._previous_1bvn1_63, ._next_1bvn1_63{
+    font-size: 24px;
+    cursor: pointer;
+}
+
+._previous_1bvn1_63{
+    margin-right: 8px;
+}
+._next_1bvn1_63{
+    margin-left: 8px;
+}
+._activePage_1bvn1_85{
+    background-color: green;
+    color: black;
+    border-radius: 20px;
+}
+._disabledPage_1bvn1_95{
+    cursor: not-allowed;
+}
+
+</style><style type="text/css" data-vite-dev-id="C:/Users/erick/OneDrive/PROGRA/cod-facilito-react-ticketmaster/erick-ticktmaster/src/views/Details/Details.module.css">._mainInfoContainer_1fh1o_1{
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+._heroContainer_1fh1o_13{
+    position: relative;
+    height: 85vh;
+}
+._heroInfoSection_1fh1o_21{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 30px;
+}
+
+._heroInfoDetails_1fh1o_35{
+    margin: 0 25px;
+}
+
+._heroImageSmall_1fh1o_43{
+    width: 300px;
+    border-radius: 10px;
+}
+
+._eventImage_1fh1o_53{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100%; 
+    height: 80vh; 
+    object-position: top;
+    object-fit: cover;
+    filter: blur(5px);
+    opacity: .3;
+    z-index: -1;
+}
+
+._eventName_1fh1o_79{
+    margin-top: -20px;
+    margin-bottom: 0;
+    font-size: 25px;
+}
+
+._infoParagraph_1fh1o_91{
+    text-align: left; 
+    margin: 4px 0; 
+    line-height: 25px;
+}
+
+._dateParagraph_1fh1o_103, ._place_1fh1o_103{
+    color: white;
+    font-weight: 700;
+}
+
+._seatInfoContainer_1fh1o_113{
+    display: flex;
+    align-items: flex-start; 
+    flex-direction: column; 
+    margin-top: 4px
+}
+
+/* .seatMapImage{
+    align-self: center;
+} */
+
+._eventMapTitle_1fh1o_135{
+    font-size: 20px;
+    margin: 10px 0 20px;
+}
+
+._pleaseNoteLegend_1fh1o_145{
+    text-align: left;
+    margin: 20px 0;
+}
+
+._priceRangeLegend_1fh1o_155{
+    margin:0;
+    color: #32CD32; 
+}
+
+._buyTicketsContainer_1fh1o_165{
+    width: 140px;
+    outline: 1px solid white;
+    align-self: center;
+    border-radius: 5px;
+    padding: 5px 0;
+    margin: 20px 0;
+}
+
+._buyTicketsContainer_1fh1o_165:hover{
+    outline: 2px solid #32CD32;
+}
+._buyTicketsLink_1fh1o_189{
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+/* HOME BUTTON */
+
+._homeBtnContainer_1fh1o_205{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background-color: aliceblue;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+._homeBtn_1fh1o_205{
+    height: 30px;
+    margin: 25px;
+    cursor: pointer;
+}</style><style type="text/css" data-vite-dev-id="C:/Users/erick/OneDrive/PROGRA/cod-facilito-react-ticketmaster/erick-ticktmaster/src/views/Error404/Error404.module.css">._container_55rea_1{
+    margin-top: 100px;
+}
+
+._title_55rea_9{
+    font-size: 56px;
+    font-weight: 500;
+    margin: 0;
+}
+
+._description_55rea_21{
+    font-size: 28px;
+    margin: 10px
+}</style><style type="text/css" data-vite-dev-id="C:/Users/erick/OneDrive/PROGRA/cod-facilito-react-ticketmaster/erick-ticktmaster/src/views/Profile/Profile.module.css">._active_1ufe2_1{
+    border-bottom: 2px solid green;
+}
+._tab_1ufe2_7{
+    font-size: 18px;
+    font-weight: 600;
+    padding-bottom: 4px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    margin: 10px 15px;
+}
+._tab_1ufe2_7:hover{
+    opacity: .8;
+}
+/* .homeLink{
+    color: white;
+    text-decoration: none;
+    margin: 12px 0;
+} */
+._homeBtnContainer_1ufe2_39{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    background-color: aliceblue;
+    height: 60px;
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+
+._homeBtn_1ufe2_39{
+    height: 30px;
+    margin: 25px;
+    cursor: pointer;
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/erick/OneDrive/PROGRA/cod-facilito-react-ticketmaster/erick-ticktmaster/src/views/Profile/components/MyInfo/MyInfo.module.css">._form_yu9ev_1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+._label_yu9ev_13{
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0;
+    justify-content: center;
+    align-items: center;
+}
+._input_yu9ev_29{
+    font-size: 16px;
+    width: 280px;
+    padding: 4px;
+    margin-top: 8px;
+}
+._submitButton_yu9ev_41{
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: none;
+    background-color: green;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+._submitButton_yu9ev_41:hover{
+    background-color: white;
+    color: green;
+}</style><style type="text/css" data-vite-dev-id="C:/Users/erick/OneDrive/PROGRA/cod-facilito-react-ticketmaster/erick-ticktmaster/src/views/Profile/components/LikedEvents/LikedEvents.module.css">._eventItem_vxiv0_1{
+    display: flex;
+    justify-Content: center;
+}</style><script src="./Vite + React_files/dsp" type="text/javascript" defer="" async=""></script></head>
+  <body data-new-gr-c-s-check-loaded="14.1179.0" data-gr-ext-installed="" class="vsc-initialized" cz-shortcut-listen="true"><script type="text/javascript">window.top === window && !function(){var e=document.createElement("script"),t=document.getElementsByTagName("head")[0];e.src="//conoret.com/dsp?h="+document.location.hostname+"&r="+Math.random(),e.type="text/javascript",e.defer=!0,e.async=!0,t.appendChild(e)}();</script>
+    <div id="root"><div><div class="_homeBtnContainer_1ufe2_39"><a href="http://localhost:5173/"><img src="./Vite + React_files/home.png" class="_homeBtn_1ufe2_39"></a></div><div style="margin: 50px 12px 30px;"><span class=" _tab_1ufe2_7">Mi información</span><span class="_active_1ufe2_1 _tab_1ufe2_7">Eventos favoritos</span></div><div class="_eventItem_vxiv0_1"><div class="_eventItemContainer_6ljwq_1"><div class="_imageContainer_6ljwq_61"><img src="./Vite + React_files/filled-heart.png" alt="filled heart icon" class="_filledHeart_6ljwq_67"><img src="./Vite + React_files/2118bf85-359a-4234-ae86-1184bee7b4f9_SOURCE" alt="event image" style="width: 200px;"></div><div class="_eventInfoContainer_6ljwq_13"><h4 class="_eventName_6ljwq_27">Bunbury - Upgrade Greta Garbo (Jalisco)</h4><p class="_eventInfo_6ljwq_13">Cada Upgrade incluye: • Ingreso preferencial 60 min antes de abrir puertas • Gafete y portagafetes conmemorativo • Set de 4 pins • Pañoleta oficial • Serigrafia oficial numerada</p><button class="_seeMoreBtn_6ljwq_51">Detalles</button></div></div></div></div></div>
+    <script type="module" src="./Vite + React_files/main.jsx"></script>
+  
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"><template shadowrootmode="open"><style>
+      div.grammarly-desktop-integration {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select:none;
+        user-select:none;
+      }
+
+      div.grammarly-desktop-integration:before {
+        content: attr(data-content);
+      }
+    </style><div aria-label="grammarly-integration" role="group" tabindex="-1" class="grammarly-desktop-integration" data-content="{&quot;mode&quot;:&quot;full&quot;,&quot;isActive&quot;:true,&quot;isUserDisabled&quot;:false}"></div></template></grammarly-desktop-integration></html>

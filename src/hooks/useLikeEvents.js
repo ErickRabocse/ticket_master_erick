@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { LIKED_EVENTS_STORAGE_KEY } from '../utils/constants'
-
 // const LIKED_EVENTS_STORAGE_KEY = 'likedEvents'
+
 const checkIsEventLiked = (eventId) => {
   const likedEvents = JSON.parse(localStorage.getItem(LIKED_EVENTS_STORAGE_KEY)) || []
   return likedEvents.includes(eventId)
@@ -9,6 +9,7 @@ const checkIsEventLiked = (eventId) => {
 
 const useLikeEvents = (eventId) => {
   const [isEventLiked, setIsEventLiked] = useState(checkIsEventLiked(eventId))
+
   const toggleEventLike = () => {
     const likedEvents = JSON.parse(localStorage.getItem(LIKED_EVENTS_STORAGE_KEY)) || []
     const eventIndex = likedEvents.indexOf(eventId)
