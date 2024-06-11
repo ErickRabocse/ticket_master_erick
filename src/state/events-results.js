@@ -1,5 +1,6 @@
 import { create } from 'zustand'
 
+// store para guardar valores de forma global
 const useEventsResults = create((set) => ({
   data: [],
   error: null,
@@ -8,13 +9,13 @@ const useEventsResults = create((set) => ({
 
   fetchEvents: async (params) => {
     try {
-      set(() => ({ isLoading: true }))
+      await set(() => ({ isLoading: true }))
       const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events.json?apikey=${import.meta.env.VITE_TICKETMASTER_API_KEY}&countryCode=MX${params?.length ? params : ''}`)
       const data = await response.json()
 
-      set(() => ({ data, isLoading: false, page: data?.page || {} }))
+      await set(() => ({ data, isLoading: false, page: data?.page || {} }))
     } catch (error) {
-      set(() => ({ error }))
+      await set(() => ({ error }))
     }
   }
 }))

@@ -3,6 +3,7 @@ import { LIKED_EVENTS_STORAGE_KEY } from '../../../../utils/constants'
 import EventItem from '../../../../components/Events/components/EventItem'
 import { useNavigate } from 'react-router-dom'
 import styles from './LikedEvents.module.css'
+
 const LikedEvents = () => {
   const [events, setEvents] = useState([]) // Array where liked events will be stored
   const [isLoading, setIsLoading] = useState(false) // Flag that changes from true to false during "fetching".

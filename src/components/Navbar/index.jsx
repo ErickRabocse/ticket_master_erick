@@ -1,19 +1,21 @@
-import React, { useEffect, useState, forwardRef, useImperativeHandle } from 'react'
-import { Link } from 'react-router-dom'
-import home from '../../assets/home.png'
 import styles from './Navbar.module.css'
+import home from '../../assets/home.png'
+
+import React, { useState, forwardRef, useImperativeHandle } from 'react'
+import { Link } from 'react-router-dom'
 
 const Navbar = forwardRef(({ onSearch }, ref) => {
   const [search, setSearch] = useState('')
-  useEffect(() => {
-    console.log('useEffect when search changes')
-  }, [search, onSearch])
+
+  const refresh = () => onSearch(search) // Refreshes site after filtering events to show all again.
+
   useImperativeHandle(ref, () => ({
     search,
     setSearch
   }))
-  const handleInputSearch = (e) => setSearch(e.target.value)
-  const refresh = () => onSearch(search)
+
+  const handleInputChange = (e) => setSearch(e.target.value)
+
   const handleInputKeyDown = (e) => {
     if (e.key === 'Enter') {
       onSearch(search)
@@ -32,9 +34,9 @@ const Navbar = forwardRef(({ onSearch }, ref) => {
         </div>
         <input
           placeholder='Busca tu evento favorito'
-          onChange={handleInputSearch}
-          value={search}
+          onChange={handleInputChange}
           onKeyDown={handleInputKeyDown}
+          value={search}
           className={styles.input}
         />
         <Link to='/profile/my-info' className={styles.myProfile}>

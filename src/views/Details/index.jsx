@@ -6,7 +6,7 @@ import { es } from 'date-fns/locale'
 import home from '../../assets/home.png'
 
 const Details = () => {
-  const { eventId } = useParams() //  console.log(eventId)
+  const { eventId } = useParams()
   const [eventData, setEventData] = useState({})
   const [error, setError] = useState({})
   const [isLoading, setIsLoading] = useState(true)

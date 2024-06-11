@@ -6,8 +6,8 @@ import ReactPaginate from 'react-paginate'
 import Navbar from '../../components/Navbar'
 import Events from '../../components/Events'
 import styles from './Home.module.css'
-import useEventsData from '../../hooks/useEventsData'
 // import useEventsResults from '../../state/events-results'
+import useEventsData from '../../hooks/useEventsData'
 
 const Home = () => {
   const { events, isLoading, error, fetchEvents, page } = useEventsData()
@@ -22,13 +22,9 @@ const Home = () => {
 
   const [searchTerm, setSearchTerm] = useState('')
   const containerRef = useRef()
-  const fetchMyEventsRef = useRef()
-
-  fetchMyEventsRef.current = fetchEvents
 
   useEffect(() => {
-    console.log('useEffect')
-    fetchMyEventsRef.current()
+    fetchEvents()
   }, [])
 
   const handleNavbarSearch = (term) => {

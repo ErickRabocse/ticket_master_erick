@@ -1,6 +1,6 @@
-import { useState } from 'react' // import { useRef } from 'react'
+import { useState } from 'react'
 const useEventsData = () => {
-  const [data, setData] = useState([]) // data = useRef([])
+  const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState()
 
@@ -16,7 +16,7 @@ const useEventsData = () => {
   }
 
   return {
-    events: data?._embedded?.events || [], // events: data.current?._embedded?.events || []
+    events: data?._embedded?.events || [],
     page: data?.page || {},
     isLoading,
     error,
