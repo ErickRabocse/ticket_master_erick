@@ -1,3 +1,7 @@
+.parentContainer{
+    padding: 20px;
+}
+
 .mainInfoContainer{
     position: relative;
     display: flex;
@@ -56,14 +60,10 @@
 
 .seatInfoContainer{
     display: flex;
-    align-items: flex-start; 
+    align-items: center; 
     flex-direction: column; 
     margin-top: 4px
 }
-
-/* .seatMapImage{
-    align-self: center;
-} */
 
 .eventMapTitle{
     font-size: 20px;

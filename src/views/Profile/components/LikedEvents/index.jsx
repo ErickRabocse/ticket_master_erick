@@ -18,7 +18,7 @@ const LikedEvents = () => {
         console.log('here are the events', events)
         const results = [] // Array where each event-liked-info-object will be stored, once fetched.
         for (const eventId of likedEvents) {
-          const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${import.meta.env.VITE_TICKETMASTER_API_KEY}`)
+          const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${import.meta.env.VITE_TM_API_KEY}`)
           const data = await response.json()
           results.push(data) // Creating an array of all event-liked-info-objects.
         }

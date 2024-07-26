@@ -1,5 +1,6 @@
 import { Component } from 'react'
-
+// This class-component was copied from the legacy-react-site: https://legacy.reactjs.org/docs/error-boundaries.html
+// It wraps the component 'Details' in the 'Router' --> if an error is caught returns the message: Ha ocurrido un error.
 class ErrorBoundary extends Component {
   constructor (props) {
     super(props)

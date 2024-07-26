@@ -1,15 +1,13 @@
 import React from 'react'
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, Outlet, useLocation } from 'react-router-dom' // 'Outlet' renders the children nested (inside the Profile component) in the 'router'.
 import styles from './Profile.module.css'
 import home from '../../assets/home.png'
-
 const Profile = () => {
-  const { pathname } = useLocation()
+  const { pathname } = useLocation() // 'pathname' from useLocation, returns: The path of the current URL, which changes when "handleTablClick" of the tabs is clicked.
   const navigate = useNavigate()
-  const handleTabClick = (path) => {
-    navigate(`/profile/${path}`)
+  const handleTabClick = (path) => { // the 'path' is assigned dynamically when the tab is clicked due to the parameter passed: 'my-info' or 'liked-events'.
+    navigate(`/profile/${path}`) // redirecting to the custom-path passed as parameter to display in the <Outlet /> the content of 'Mi información' or 'Eventos Favoritos'
   }
-
   return (
     <div>
       <div className={styles.homeBtnContainer}>
@@ -36,5 +34,4 @@ const Profile = () => {
     </div>
   )
 }
-
 export default Profile

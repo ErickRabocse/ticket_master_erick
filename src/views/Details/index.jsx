@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom' // 'useParams' --> to modify the route, 'Link' to redirect to a new page.
 import styles from './Details.module.css'
-import { format } from 'date-fns'
+import { format } from 'date-fns' // 'format' & 'es' --> to show the date
 import { es } from 'date-fns/locale'
-import home from '../../assets/home.png'
+import home from '../../assets/home.png' // png icon-img
 
 const Details = () => {
-  const { eventId } = useParams()
-  const [eventData, setEventData] = useState({})
+  const { eventId } = useParams() // 'eventId' was prev-declared in the 'router' & its value is assigned by the 'Events-EventItem'components!
+  const [eventData, setEventData] = useState({}) // 'eventData' creates an empty-object that will store all the event data fetched by the API-call
   const [error, setError] = useState({})
   const [isLoading, setIsLoading] = useState(true)
   useEffect(() => {
     const fetchEventsData = async () => {
-      try {
-        const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${import.meta.env.VITE_TICKETMASTER_API_KEY}`)
+      try { // API-call fetched when the details-page is requested by the "detalles"-btn in the eventItem component using the eventId from the Events
+        const response = await fetch(`https://app.ticketmaster.com/discovery/v2/events/${eventId}?apikey=${import.meta.env.VITE_TM_API_KEY}`)
         const data = await response.json()
         setEventData(data)
         setIsLoading(false)
@@ -23,26 +23,22 @@ const Details = () => {
         setIsLoading(false)
       }
     }
-    fetchEventsData()
-  }, [])
-  console.log(eventData)
-
+    fetchEventsData() // Executing the API-call
+  }, [eventId])
+  // Checking if 'eventData' hasn't loaded --> post loading message... & if 'error'-object has content --> show error message
   if (isLoading && Object.keys(eventData === 0)) {
     <h1>The page is loading ...</h1>
   }
   if (Object.keys(error) > 0) {
     <h1>An error has occurred</h1>
   }
-  return (
+  return ( // Finally return the component-content
     <div className={styles.parentContainer}>
       <div className={styles.mainInfoContainer}>
         <section className={styles.heroContainer}>
           <div className={styles.homeBtnContainer}>
-            <Link to='/'>
-              <img src={home} className={styles.homeBtn} />
-            </Link>
+            <Link to='/'><img src={home} className={styles.homeBtn} /></Link>
           </div>
-
           <img src={eventData?.images?.[0]?.url} alt={eventData?.name} className={styles.eventImage} />
           <div className={styles.heroInfoSection}>
             <div>

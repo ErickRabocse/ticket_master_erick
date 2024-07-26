@@ -8,7 +8,7 @@ import emptyHeart from '../../../../assets/empty-heart.png'
 const EventItem = ({ info, id, name, img, onEventClick, state }) => {
   // Destructured elements returned by custom-hook-useLikeEvents which requires an (id)
   const { isEventLiked, toggleEventLike } = useLikeEvents(id)
-  // Fn passed to --> native-onClick in "Detalles"-btn which calls
+  // Fn passed to --> native-onClick in ""-btn which calls
   // --> onEventClick(id)-fn passed as prop to main-component which invokes
   // --> handleEventClick-fn declared-in-parent-component that navigates to
   // --> details-page with the id-passed!
